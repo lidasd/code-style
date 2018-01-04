@@ -18,7 +18,7 @@
 > 例：account_model.js
 
 #### CSS, SCSS文件命名
-类名使用小写字母，以中划线分隔
+类名使用小写字母，以下划线分隔
 id采用驼峰式命名
 scss中的变量、函数、混合、placeholder采用驼峰式命名
 
