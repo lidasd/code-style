@@ -205,3 +205,19 @@ var array = [
  *         author-name2(mail-name2@domain.com)
  */
 ```
+
+
+## 代码提交规范
+
+###### commit 信息
+
+提交信息主要分为三种：
+
+* feature:新增内容
+* enhancement:改变内容
+* bug:修复内容
+
+
+> 要求内容中清楚的写明本次提交中所有的更改。
+
+> 代码缩进最好使用 4 个空格做为一个缩进层级。提交代码之前，使用快捷键 Ctrl+Alt+Shift+L 格式化代码。
