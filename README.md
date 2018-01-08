@@ -233,4 +233,9 @@ var array = [
 ## vue项目文件
 
 
-自己开发的
+#### 组件命名规范
+
+ 组件在components下面新建文件夹
+ 名字以x_开头
+
+> 例：x_login > index.vue
