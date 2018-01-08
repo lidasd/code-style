@@ -29,6 +29,11 @@ scss中的变量、函数、混合、placeholder采用驼峰式命名
 
 > 例：error_report.html
 
+#### vue组件名称
+全部采用驼峰命名
+
+> 例：errorReport.vue
+
 ## HTML
 
 #### 代码风格
@@ -223,3 +228,9 @@ var array = [
 > 要求内容中清楚的写明本次提交中所有的更改。
 
 > 代码缩进最好使用 4 个空格做为一个缩进层级。提交代码之前，使用快捷键 Ctrl+Alt+Shift+L 格式化代码。
+
+
+## vue项目文件
+
+
+自己开发的
