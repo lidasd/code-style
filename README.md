@@ -34,6 +34,12 @@ scss中的变量、函数、混合、placeholder采用驼峰式命名
 
 > 例：errorReport.vue
 
+
+#### js函数变量等
+全部采用驼峰命名
+
+> 例：errorReport.vue
+
 ## HTML
 
 #### 代码风格
