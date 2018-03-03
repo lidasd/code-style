@@ -1,10 +1,8 @@
 # 前端开发规范
-## 1. 规范说明  
-
 此为前端开发团队遵循和约定的代码书写规范，意在提高代码的规范性和可维护性。  
-此规范为参考规范，不全是硬性要求，部分硬性约定见下一条[语法](#2)，统一团队编码规范和风格。让所有代码都是有规可循的，并且能够得到沉淀，减少重复劳动。
+此规范为参考规范，不全是硬性要求，部分硬性约定见下一条[语法](#1)，统一团队编码规范和风格。让所有代码都是有规可循的，并且能够得到沉淀，减少重复劳动。
 
-## 2. 语法
+## 1. 语法
 - 用两个空格来代替制表符（tab） -- 这是唯一能保证在所有环境下获得一致展现的方法。
 - 为选择器分组时，将单独的选择器单独放在一行。
 - 为了代码的易读性，在每个声明块的左花括号前添加一个空格。
@@ -36,6 +34,105 @@
 }
 ```
 
+## 2.命名规范
+
+### 2.1 文件及文件夹  
+#### 2.1.1 全部英文小写字母+数字或连接符"`-` , `_` "，不可出现其他字符
+```
+xc-chain
+├── package.json
+├── dist/
+├── build/
+└── src/
+    ├── assets/
+    │   └── images/
+    ├── components/
+    │       ├── xc-card.vue
+    │       └── xc-inclination.vue
+    ├── plugins/
+    │   ├── geetest.js
+    │   └── hash-calc.js
+    ├── router/
+    │   └── index.js
+    ├── services/
+    │   ├── api.js
+    │   └── news-api.js
+    └── store/
+        ├── constants.js
+        ├── index.js
+        └── mutation-types.js
+```
+#### 2.1.2：调用 `/libs` 文件需包含版本号，压缩文件需包含`min`关键词，其他插件则可不包含
+> eg：`/libs/jquery.1.9.1.js`,`/libs/modernizr-1.7.min.js`,`fileuploader.js`,`plugins.js`
+
+### 2.2 HTML标签
+#### 2.2.1 标签全部采用小写形式
+```html
+<!-- Bad HTML -->
+<A href="#">链接</A>
+<DIV>div<DIV>
+
+<!-- Good HTML-->
+<a href="#">链接</a>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+<ul>
+```
+#### 2.2.2 自定义标签增加前缀
+> eg:`my-btn`,`my-card`，`my-card-header`
+```html
+<my-card>
+  <my-card-header>
+    自定义标签
+  </my-car-header>
+  <my-card-content>
+    <!-- ... -->
+  </my-card-content>
+</my-card>
+```
+
+### 2.3 CSS
+
+#### 2.3.1 选择器
+- 对于通用元素使用 class ，这样利于渲染性能的优化。
+- 对于经常出现的组件，避免使用属性选择器（例如，[class^="..."]）。浏览器的性能会受到这些因素的影响。
+- 选择器要尽可能短，并且尽量限制组成选择器的元素个数，建议不要超过 3 。
+- 只有在必要的时候才将 class 限制在最近的父元素内（也就是后代选择器）（例如，不使用带前缀的 class 时 -- 前缀类似于命名空间）。
+```css
+/* Bad example */
+span { ... }
+.page-container #stream .stream-item .tweet .tweet-header .username { ... }
+.avatar { ... }
+
+/* Good example */
+.avatar { ... }
+.tweet-header .username { ... }
+.tweet .avatar { ... }
+```
+
+#### 2.3.2 class命名
+- class 名称中只能出现小写字符和破折号（dashe）（不是下划线，也不是驼峰命名法）。破折号应当用于相关 class 的命名（类似于命名空间）（例如，.btn 和 .btn-danger）。
+- 避免过度任意的简写。.btn 代表 button，但是 .s 不能表达任何意思。
+- class 名称应当尽可能短，并且意义明确。
+- 使用有意义的名称。使用有组织的或目的明确的名称，不要使用表现形式（eg:`red`,`grey`等）和方位性（eg:`left`,`bottom`等）的名称。
+- 基于最近的父 class 或基本（base） class 作为新 class 的前缀。
+- 使用 .js-* class 来标识行为（与样式相对），并且不要将这些 class 包含到 CSS 文件中。
+```css
+/* Bad example */
+.t { ... }
+.red { ... }
+.header { ... }
+
+/* Good example */
+.important { ... }
+.tweet { ... }
+.tweet-header { ... }
+```
+
+
+
+
 ## 3. 不要使用`@import`
 与 `<link>` 标签相比，`@import` 指令要慢很多，不光增加了额外的请求次数，还会导致不可预料的问题。替代办法有以下几种：
 - 使用多个 `<link>` 元素
@@ -43,45 +140,6 @@
 - 通过 Rails、Jekyll 或其他系统中提供过 CSS 文件合并功能
 
 
-## 命名规则
-
-#### 项目命名
-
-全部采用小写方式， 以下划线分隔。
-> 例：my_project_name
-
-#### 目录命名
-全部采用小写方式， 以下划线分隔。
-有复数结构时，要采用复数命名法。
-> 例：scripts, styles, images, data_models
-
-#### JS文件命名
-全部采用小写方式， 以下划线分隔。
-
-> 例：account_model.js
-
-#### CSS, SCSS文件命名
-类名使用小写字母，以下划线分隔
-id采用驼峰式命名
-scss中的变量、函数、混合、placeholder采用驼峰式命名
-
-> 例：retina_sprites.scss
-
-#### HTML文件命名
-全部采用小写方式， 以下划线分隔。
-
-> 例：error_report.html
-
-#### vue组件名称
-全部采用驼峰命名
-
-> 例：errorReport.vue
-
-
-#### js函数变量等
-全部采用驼峰命名
-
-> 例：errorReport.vue
 
 ## HTML
 
