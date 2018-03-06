@@ -467,4 +467,4 @@ Body部分的格式是固定的，必须写成This reverts commit `<hash>`.，�
 - 设置文件编码为 UTF-8。
 - 在文件结尾添加一个空白行。
 
-参照文档并将这些配置信息添加到项目的`.editorconfig`文件中。例如：[.editorconfig](http://)。
+参照文档并将这些配置信息添加到项目的`.editorconfig`文件中。例如：[.editorconfig](.editorconfig)。
