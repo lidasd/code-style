@@ -454,3 +454,13 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ```
 Body部分的格式是固定的，必须写成This reverts commit `<hash>`.，其中的`<hash>`是被撤销 commit 的 SHA 标识符。
 
+
+## 六.编辑器配置
+将你的编辑器按照下面的配置进行设置，以避免常见的代码不一致和差异：
+
+- 用两个空格代替制表符（soft-tab 即用空格代表 tab 符）。
+- 保存文件时，删除尾部的空白符。
+- 设置文件编码为 UTF-8。
+- 在文件结尾添加一个空白行。
+
+参照文档并将这些配置信息添加到项目的`.editorconfig`文件中。例如：[.editorconfig](http://)。
